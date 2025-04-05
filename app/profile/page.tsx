@@ -18,15 +18,18 @@ export default function Profile() {
           account = accounts[0];
         }
 
-        const res = await fetch("http://localhost:8000/metadata/check", {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            public_address: account,
-          }),
-          method: "POST",
-        });
+        const res = await fetch(
+          "https://donat3-backend-kuvp.vercel.app/metadata/check",
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              public_address: account,
+            }),
+            method: "POST",
+          }
+        );
 
         const data = await res.json();
 
@@ -83,21 +86,24 @@ export default function Profile() {
         account = accounts[0];
       }
 
-      const response = await fetch("http://localhost:8000/metadata/add", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          public_address: account,
-          id,
-          name,
-          subscribers,
-          image,
-          description,
-          viewers,
-        }),
-        method: "POST",
-      });
+      const response = await fetch(
+        "https://donat3-backend-kuvp.vercel.app/metadata/add",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            public_address: account,
+            id,
+            name,
+            subscribers,
+            image,
+            description,
+            viewers,
+          }),
+          method: "POST",
+        }
+      );
 
       const result = await response.json();
       console.log("Profile linked:", result);

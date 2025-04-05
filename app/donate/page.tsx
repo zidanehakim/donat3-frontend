@@ -21,16 +21,19 @@ export default function DonatePage() {
     const fetchStreamers = async () => {
       setLoading(true); // Set loading true when starting the fetch
       try {
-        const response = await fetch("http://localhost:8000/metadata/get", {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            amount: limit,
-            searchQuery: "",
-          }),
-          method: "POST",
-        });
+        const response = await fetch(
+          "https://donat3-backend-kuvp.vercel.app/metadata/get",
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              amount: limit,
+              searchQuery: "",
+            }),
+            method: "POST",
+          }
+        );
 
         const result = await response.json();
 
@@ -64,16 +67,19 @@ export default function DonatePage() {
     setLoading(true); // Set loading true when starting the search
 
     try {
-      const response = await fetch("http://localhost:8000/metadata/get", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          amount: limit,
-          searchQuery,
-        }),
-        method: "POST",
-      });
+      const response = await fetch(
+        "https://donat3-backend-kuvp.vercel.app/metadata/get",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            amount: limit,
+            searchQuery,
+          }),
+          method: "POST",
+        }
+      );
 
       const result = await response.json();
 

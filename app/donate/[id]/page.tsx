@@ -189,15 +189,18 @@ export default function StreamerDonatePage() {
     async function getStreamerData() {
       try {
         setIsLoading(true);
-        const response = await fetch(`http://localhost:8000/metadata/get_one`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          method: "POST",
-          body: JSON.stringify({
-            id,
-          }),
-        });
+        const response = await fetch(
+          `https://donat3-backend-kuvp.vercel.app/metadata/get_one`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify({
+              id,
+            }),
+          }
+        );
 
         const data = await response.json();
         if (response.ok && data.streamer) {
@@ -408,7 +411,7 @@ export default function StreamerDonatePage() {
       });
 
       // Send data to socket server for alerts
-      const socket = io("http://localhost:8000", {
+      const socket = io("https://donat3-backend-kuvp.vercel.app", {
         transports: ["websocket"],
       });
       socket.emit("donation", {

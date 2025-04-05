@@ -55,7 +55,7 @@ export default function OverlayPage() {
       console.log("Address:", address);
 
       const response = await fetch(
-        "http://localhost:8000/metadata/get_id_by_address",
+        "https://donat3-backend-kuvp.vercel.app/metadata/get_id_by_address",
         {
           method: "POST",
           headers: {

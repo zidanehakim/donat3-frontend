@@ -27,7 +27,7 @@ export default function OverlayPage() {
 
   useEffect(() => {
     // Create a WebSocket connection to the server (change the URL if needed)
-    const socket: Socket = io("http://localhost:8000");
+    const socket: Socket = io("https://donat3-backend-kuvp.vercel.app");
 
     // Listen for "donation" event from the server
     socket.on("donation", (data: DonationAlert) => {

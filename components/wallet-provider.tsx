@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from "react";
 
-const api_url = "http://localhost:8000";
+const api_url = "https://donat3-backend-kuvp.vercel.app";
 
 declare global {
   interface Window {

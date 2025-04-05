@@ -31,15 +31,18 @@ export default function StreamerProfilePage() {
     async function getStreamerData() {
       try {
         setIsLoading(true);
-        const response = await fetch(`http://localhost:8000/metadata/get_one`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          method: "POST",
-          body: JSON.stringify({
-            id,
-          }),
-        });
+        const response = await fetch(
+          `https://donat3-backend-kuvp.vercel.app/metadata/get_one`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify({
+              id,
+            }),
+          }
+        );
 
         const data = await response.json();
         if (response.ok && data.streamer) {
